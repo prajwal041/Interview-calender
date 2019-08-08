@@ -25,6 +25,12 @@ If you're running Windows or MacOS X, you'll need to use `docker-machine` to set
 Once the Docker container is up, you'll probably want to add a superuser to the application, so that you can access the
 Django admin console and add calendars, interview slots, and conflicts to the database.
 
+Make sure you made all the migrations & migrate to the database.
+
+`sudo docker-compose run web python manage.py makemigrations app`
+
+`sudo docker-compose run web python manage.py migrate`
+
 To do this, first run `sudo docker-compose run web python manage.py createsuperuser` from the root of the project to get a root shell on the Docker machine.
 Then it will prompt the superuser credentails.
 
